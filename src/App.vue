@@ -12,7 +12,8 @@
       :series="series"
       :category-axis="categoryAxis"
       :value-axis="valueAxis"
-      :theme="'blueopal'">
+      :theme="'blueopal'"
+      :panes="panes">
     </kendo-chart>
   </div>
 </template>
@@ -30,13 +31,15 @@ export default {
         type: 'area',
         field: 'bid',
         categoryField: 'timestamp',
-        name: 'Bid'
+        name: 'Bid',
+        axis: 'Bid'
       },
       {
         type: 'area',
         field: 'ask',
         categoryField: 'timestamp',
-        name: 'Ask'
+        name: 'Ask',
+        axis: 'Ask'
       }],
       categoryAxis: {
         labels: {
@@ -46,11 +49,25 @@ export default {
           visible: false
         }
       },
-      valueAxis: {
+       valueAxis: [
+      {
+        name: 'Ask',
+        pane: 'top-pane',
         labels: {
           format: 'c2'
         }
-      }
+      },
+      {
+        name: 'Bid',
+        pane: 'bottom-pane',
+        labels: {
+          format: 'c2'
+        }
+      }],
+       panes:[
+        {name: 'top-pane'},
+        {name: 'bottom-pane'}
+      ]
     }
   },
   methods: {
