@@ -28,9 +28,15 @@ export default {
       },
       series: [{
         type: 'area',
-        field: 'spread',
+        field: 'bid',
         categoryField: 'timestamp',
-        name: 'Spread'
+        name: 'Bid'
+      },
+      {
+        type: 'area',
+        field: 'ask',
+        categoryField: 'timestamp',
+        name: 'Ask'
       }],
       categoryAxis: {
         labels: {
